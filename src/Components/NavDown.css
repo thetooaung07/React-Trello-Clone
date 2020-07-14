@@ -1,0 +1,22 @@
+nav.sec-nav button.btn {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+nav.sec-nav button.btn:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+.flexGrow {
+  flex-grow: 1;
+}
+.trello {
+  font-size: 1rem;
+  background-color: transparent;
+  letter-spacing: 1pt;
+  font-family: "Poppins", sans-serif;
+  background-color: transparent !important;
+}
+.stick {
+  margin-right: 15px;
+  margin-left: 5px;
+  height: 100%;
+  font-weight: 100;
+}

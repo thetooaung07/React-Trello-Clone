@@ -1,0 +1,16 @@
+nav.first-nav {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+nav.first-nav button.btn {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+nav.first-nav button.btn:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+nav.first-nav button.profile{
+  border: none;
+  border-radius: 50%;
+}
+

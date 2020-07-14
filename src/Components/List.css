@@ -1,0 +1,31 @@
+.trello-list {
+  background-color:rgba(247, 247, 247, 0.925);
+  max-width: 288px;
+  min-width: 288px;
+  height: max-content;
+}
+#add-another-card {
+  display: block;
+  width: 100%;
+}
+.hoverEffect button:hover {
+  background-color: rgb(211, 211, 211);
+}
+.title {
+  flex-grow: 1;
+  text-align: left;
+}
+.titleInput {
+  border: 0 !important;
+  outline: none !important;
+  /* background-color:rgba(247, 247, 247, 0.925); */
+  width: 100%;
+  font-weight: 500 !important;
+}
+.titleInput:focus,.titleInput:active {
+  outline: none !important;
+  box-shadow: none;
+  /* background-color:transparent; */
+  font-size: inherit;
+  font-weight: inherit;
+}

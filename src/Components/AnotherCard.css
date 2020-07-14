@@ -1,0 +1,17 @@
+.textArea {
+  resize: none;
+  width: 100%;
+  border: transparent;
+  outline: none;
+  box-shadow: 0px 1px 1px 0px rgba(9,30,66,.25);
+  font-size: 14px;
+  height: 75px;
+}
+.AddCard {
+  background-color: rgba(44, 212, 44, 0.884);
+  color: white !important;
+  margin-left: 2px;
+}
+.AddCard:hover {
+  background-color: rgb(33, 231, 33) !important;
+}

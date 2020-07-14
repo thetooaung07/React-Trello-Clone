@@ -1,10 +1,32 @@
 #add-another-list {
   background-color:rgba(255, 255, 255, 0.39);
-  margin-right: 10px !important;
 }
-
 .addAnotherList {
-  /* background-color: teal; */
   text-align: left;
   color: white;
+  width: 100%;
+  max-width: 288px;
+  min-width: 288px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.AddCard {
+  background-color: rgba(44, 212, 44, 0.884);
+  color: white !important;
+  margin-left: 2px !important;
+  margin-right: 3px !important;
+}
+.AddCard:hover {
+  background-color: rgb(33, 231, 33) !important;
+}
+.addNewCard {
+  width: 100%;
+  max-width: 288px;
+  min-width: 288px;
+  background-color: rgba(247, 247, 247, 0.925);
+}
+.addNewCard input {
+  border: 2px solid rgb(25, 163, 255);
+  outline: none;
+  box-shadow: 0px 1px 1px 0px rgba(9,30,66,.25);
+  width: 99%;
 }

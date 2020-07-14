@@ -10,8 +10,12 @@
 .AddCard {
   background-color: rgba(44, 212, 44, 0.884);
   color: white !important;
-  margin-left: 2px;
+  margin-left: 3px !important;
+  margin-right: 3px !important;
 }
 .AddCard:hover {
   background-color: rgb(33, 231, 33) !important;
+}
+.divCardAdd {
+  background-color: red;
 }

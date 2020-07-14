@@ -1,34 +1,36 @@
-import React from "react";
-import "./AnotherList.css"
+import React, { useState } from "react";
+import "./AnotherList.css";
 
 function AnotherList() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // const toggleAddAnotherList = () => {
+
+  // }
   return (
-    <div
-      className="d-flex justify-content-start align-items-center rounded m-1 px-2 py-1 trello-list text-secondary"
-      id="add-another-list"
-    >
-      <div className="addAnotherList">
-        <i className="fa fa-plus"></i>&nbsp; Add another List
+    
+      isOpen ? (
+        <div className="d-flex flex-column justify-content-center align-items-center rounded addNewCard px-2">
+          <input
+            autoFocus
+            className=" rounded mt-2 px-2"
+            placeholder="Enter a title for this card..."
+            onBlur={() => setIsOpen(!isOpen)}
+          />
+        <div className="align-self-start my-2">
+          <button className="btn btn-sm AddCard" >Add Card</button>
+          <button className="btn btn-sm" > <i className="fa fa-times"></i></button>
+        </div>
+
       </div>
-    </div>
+      
+      ) : (
+        <div className="addAnotherList px-2 py-1 rounded" onClick={() => setIsOpen(!isOpen)}>
+          <i className="fa fa-plus"></i>&nbsp; Add another List
+        </div>
+      )
+  
   );
 }
 
 export default AnotherList;
-
-
-  /* <div>
-        <div>
-          <input
-            type="text"
-            placeholder="Enter List Title..."
-            id="list-title"
-          ></input>
-          <div>
-            <button>Add List</button>
-
-            <i className="fa fa-times"></i>
-          </div>
-        </div>
-      </div> */
-

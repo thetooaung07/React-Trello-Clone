@@ -35,7 +35,9 @@ function Wrapper({ setIsLoading }) {
         <List key={list.id}
         list={list} />
       ))}
-      <AnotherList/> 
+
+      <div className="d-flex justify-content-start align-items-center rounded m-1 anotherList"><AnotherList/> </div>
+      
       <span>&thinsp;</span>
     </div>
   );

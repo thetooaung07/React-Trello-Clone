@@ -1,17 +1,28 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import "./Card.css";
 import CardLabel from "./CardLabel";
 import CardMember from "./CardMember";
-import Modal from "./Modal";
+import MyModal from "./MyModal";
+
+
 
 function Card({ card }) {
   const labels = card.labels;
   const members = card.members;
 
 
+  const [show, setShow] = useState(false);
+  const showHandler = (e) => {
+    e.stopPropagation();
+    setShow(false);
+  }
+  
 
   return (
-    <div className="d-flex justify-content-center align-items-center" >
+   
+    
+    <div className="d-flex justify-content-center align-items-center" onClick={()=>setShow(true)} >
+    <MyModal show={show} showHandler={showHandler}></MyModal>
       <div className="col-list">
         <div className="d-flex flex-row">
           {labels.map((label) => (

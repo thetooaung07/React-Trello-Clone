@@ -7,3 +7,12 @@ export const getInitials = (name) => {
   }
   return initials;
 };
+
+
+// export const showMenu = (element) => {
+//   var rect = document.getElementById('idForRect'+id).getBoundingClientRect()
+//   var listMenu = document.querySelector('.showmenu'+id);
+//   listMenu.style.display = "flex";
+//   listMenu.style.left =  rect.left-15 + "px";
+//   listMenu.style.top = rect.top+27 + "px";
+// }

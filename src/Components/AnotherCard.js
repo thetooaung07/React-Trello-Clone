@@ -10,10 +10,10 @@ function AnotherCard() {
 
 
     isClicked ?  <div className="d-flex flex-column justify-content-center align-items-start mt-2 mx-2 mb-1">
-      <textarea autoFocus className="textArea  rounded mb-2 py-2 px-2" placeholder="Enter a title for this card..." onBlur={() => setIsClicked(!isClicked)}/>
+      <textarea autoFocus className="textArea  rounded mb-2 py-2 px-2" placeholder="Enter a title for this card..." onBlur={(event) => {event.stopPropagation();setIsClicked(!isClicked)}}/>
       <div className="">
         <button className="btn btn-sm AddCard" >Add Card</button>
-        <button className="btn btn-sm" > <i class="fa fa-times"></i></button>
+        <button className="btn btn-sm" > <i className="fa fa-times"></i></button>
       </div>
     </div>
     
@@ -24,7 +24,7 @@ function AnotherCard() {
         <button className="btn btn-sm text-secondary"><i className="fa fa-window-maximize"></i></button>
       </div>
 
-    
+  
   )
 }
 

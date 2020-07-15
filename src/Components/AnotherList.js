@@ -15,7 +15,7 @@ function AnotherList() {
             autoFocus
             className=" rounded mt-2 px-2"
             placeholder="Enter a title for this card..."
-            onBlur={() => setIsOpen(!isOpen)}
+            onBlur={(event) => {event.stopPropagation(); setIsOpen(!isOpen)}}
           />
         <div className="align-self-start my-2">
           <button className="btn btn-sm AddCard" >Add Card</button>

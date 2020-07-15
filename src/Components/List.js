@@ -15,12 +15,8 @@ function List({ list }) {
     setInput(e.target.value);
     console.log(input);
   };
+ 
 
-  // useEffect(() => {
-  //   editTitle()
-  // },[])
-
-  const toggleAnotherCard = () => {};
 
   return (
     <div className="rounded m-1 py-1 pb-2 trello-list text-secondary hoverEffect">
@@ -34,13 +30,13 @@ function List({ list }) {
             value={input}
           />
         ) : (
-          <h6 className=" pl-2 title" onClick={() => setIsOpen(!isOpen)}>
+          <h6 className=" pl-2 title" onClick={(event) =>{event.stopPropagation(); setIsOpen(!isOpen)}}>
             {list.title}
           </h6>
         )}
         <button className="btn btn-sm stretch-x text-secondary">
           <i className="fa fa-ellipsis-h"></i>
-        </button>
+        </button> 
       </div>
 
       {cards.map((card) => (

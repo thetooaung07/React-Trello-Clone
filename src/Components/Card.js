@@ -2,11 +2,11 @@ import React,{useState, useEffect} from "react";
 import "./Card.css";
 import CardLabel from "./CardLabel";
 import CardMember from "./CardMember";
-import MyModal from "./MyModal";
+import MyModal from "./Modal/MyModal";
 
 
 
-function Card({ card }) {
+function Card({ card, list }) {
   const labels = card.labels;
   const members = card.members;
 
@@ -22,7 +22,7 @@ function Card({ card }) {
    
     
     <div className="d-flex justify-content-center align-items-center" onClick={()=>setShow(true)} >
-    <MyModal show={show} showHandler={showHandler}></MyModal>
+    <MyModal show={show} showHandler={showHandler} card={card} list={list}></MyModal>
       <div className="col-list">
         <div className="d-flex flex-row">
           {labels.map((label) => (

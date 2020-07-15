@@ -40,7 +40,7 @@ function List({ list }) {
       </div>
 
       {cards.map((card) => (
-        <Card key={card.id} card={card}></Card>
+        <Card key={card.id} list={list} card={card}></Card>
       ))}
       <div className="">
         <AnotherCard></AnotherCard>

@@ -1,3 +1,5 @@
-.CardMember {
-  margin: 2px;
+.cardMember {
+  display: block;
+  background-color: #46e5eb;
+  padding: 3px 5px;
 }

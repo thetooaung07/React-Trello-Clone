@@ -4,14 +4,12 @@ import { getInitials} from "../utils.js";
 
 function CardMember({member}) {
 
-
-  // console.log(typeof member.name);
   const name = getInitials(member.name);
 
   return (
-    <span className="CardMember btn-sm mb-1 rounded-circle">
+    <div className="cardMember mr-1 mb-1 rounded-circle">
       {name}
-    </span>
+    </div>
   )
 }
 

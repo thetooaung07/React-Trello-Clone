@@ -1,22 +1,11 @@
-import React,{useState, useEffect} from 'react'
+import React from 'react'
 import "./CardLabel.css"
 
 function CardLabel({label}) {
 
-  const [color, setColor] = useState("")
-
-  const getColor = () => {
-    setColor(label.color)
-    // console.log(label)
-  }
-
-  useEffect(() => {
-    getColor();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  
-
+ 
+  const color = label.color;
+ 
   return (
     
       <span className="color" style={{backgroundColor:color}}></span>

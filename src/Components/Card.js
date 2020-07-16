@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React,{useState} from "react";
 import "./Card.css";
 import CardLabel from "./CardLabel";
 import CardMember from "./CardMember";
@@ -42,7 +42,7 @@ function Card({ card, list }) {
               <i className="fa fa-paperclip"></i>
             </button>
           </div>
-        <div className="d-flex">
+        <div className="d-flex justify-content-around align-items-center">
           {members.length > 0
             ? members.map((member) => (
                 <CardMember key={member.username} member={member} />

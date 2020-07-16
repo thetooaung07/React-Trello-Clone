@@ -6,7 +6,7 @@ import AnotherCard from "./AnotherCard";
 function List({ list }) {
   // console.log(list);
   const cards = list.cards;
-
+  const listPosition = list.position;
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState(list.title);
 
@@ -43,7 +43,7 @@ function List({ list }) {
         <Card key={card.id} list={list} card={card}></Card>
       ))}
       <div className="">
-        <AnotherCard></AnotherCard>
+        <AnotherCard ></AnotherCard>
       </div>
     </div>
   );

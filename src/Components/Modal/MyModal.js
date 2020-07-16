@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MyModal.css";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import CardMember from "../CardMember";
 import Label from "./Label";
 
@@ -18,7 +18,7 @@ const MyModal = ({ show, showHandler, card, list }) => {
 
   return (
     <Modal id="main-modal" show={show}>
-      <Modal.Header closeButton onClick={showHandler} mx-1>
+      <Modal.Header closeButton onClick={showHandler} className="mx-1" >
         <div id="mainlabel" className="label-div">
           <h4 id="labelh4tag">{title}</h4>
           <div id="labelShow " className="pl-1">

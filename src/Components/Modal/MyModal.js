@@ -35,19 +35,21 @@ const MyModal = ({show, showHandler,card, list}) => {
 
                 
 
+               {members.length > 0 ? 
                 <div id="mainmember" className="mem-div">
-                  
+                  <div id="memShow"> 
+                    <h4 id="memberh4tag" >Members</h4>
 
-                  <div id="memShow">  <h4 id="memberh4tag" >Members</h4>
-                    {members.length > 0 ? members.map((member) => (
+                     {members.map((member) => (
 
                     <CardMember key={member.username} member={member} />
                     
-                  )) : ""}
+                  )) } 
                
                    {/* Here is something to add */}
                   </div>
-               </div>
+               </div>: ""
+               }
 
               </div>
               <div id="card-des" className="modal-description"><i className="fa fa-list"></i> &nbsp; {description}</div>

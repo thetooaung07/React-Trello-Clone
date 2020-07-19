@@ -143,31 +143,7 @@
   margin-bottom: 7px;
 }
 
-#checklists {
-  height: max-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-left: 10px;
-  font-weight: 600;
 
-}
-
-
-#checklists header {
-  color: rgba(53, 53, 53, 0.767);
-  margin-bottom: 5px;
-  text-decoration: underline;
-}
-
-.checklistItem {
-  font-weight: lighter;
-  color: rgb(46, 118, 228);
-  margin-left: 30px;
-  margin-bottom: 30px;
-  padding: 5px 0px;
-}
 .label-member {
   width: 100%;
   height: max-content;

@@ -4,16 +4,20 @@ import "./MyModal.css";
 import { Modal } from "react-bootstrap";
 import CardMember from "../CardMember";
 import Label from "./Label";
+import ModalCheckList from "./ModalCheckList";
 
 
 const MyModal = ({ show, showHandler, card, list }) => {
+
+  
   const title = card.title;
   const description = card.description;
   const members = card.members;
   const labels = card.labels;
   const listTitle = list.title;
+  const checklists = card.checklists;
 
-  // console.log(list);
+  console.log(checklists);
   // console.log(labels);
 
   return (
@@ -82,7 +86,13 @@ const MyModal = ({ show, showHandler, card, list }) => {
                   <i className="fa fa-times"></i>
                 </div>
               </div>
-              <div id="checklists">{/* Checklists to add */}</div>
+              
+                {
+                  checklists.map((checklist)=>(
+                    <ModalCheckList key={checklist.id} checklist={checklist}></ModalCheckList>
+                  ))
+                }
+              
 
               <div className="small1">
                 <span>

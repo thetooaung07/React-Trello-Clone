@@ -69,11 +69,11 @@ function Card({ card, list, fetchLists }) {
             </button>
           </div>
           <div className="d-flex justify-content-around align-items-center">
-            {members.length > 0
-              ? members.map((member) => (
+            {members && members.length > 0
+              && members.map((member) => (
                   <CardMember key={member.username} member={member} />
                 ))
-              : ""}
+              }
           </div>
         </div>
       </div>

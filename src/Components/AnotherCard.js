@@ -2,7 +2,7 @@ import React,{useState, useRef, useEffect} from 'react'
 import "./AnotherCard.css"
 import Axios from 'axios';
 
-function AnotherCard({list, fetchLists}) {
+function AnotherCard({list, updateListInState}) {
 
   const [input, setInput] = useState("");
   const [isClicked, setIsClicked] = useState(false);
@@ -33,18 +33,21 @@ function AnotherCard({list, fetchLists}) {
     event.preventDefault();
     if(input !== ""){
       try{
-        const res = await Axios.post(`http://localhost:8080/card/add/${list.id}`, {
+        const res = await Axios.post(`https://trello-clone-ppm.herokuapp.com/card/add/${list.id}`, {
           title: input,
-          position: 1,
+          position: list && list.cards ? list.cards.length + 1: 1,
           status: 1
         })
         console.log(res);
+        const cardAddedList = {...list};
+        cardAddedList.cards.push(res.data);
+        updateListInState(cardAddedList);
       }catch(error){
         console.log(error);
       }
     }
     setInput('');
-    fetchLists();
+    setIsClicked(false);
     
   }
 

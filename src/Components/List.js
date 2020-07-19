@@ -5,7 +5,7 @@ import AnotherCard from "./AnotherCard";
 import Axios from "axios";
 import CardModal from "./CardModal";
 
-function List({ list, removeDeletedListFromState }) {
+function List({ list, updateListInState, removeDeletedListFromState }) {
   const cards = list.cards;
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState(list.title);
@@ -42,6 +42,7 @@ function List({ list, removeDeletedListFromState }) {
           status: 1,
         });
         console.log(res);
+        updateListInState(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -107,7 +108,7 @@ function List({ list, removeDeletedListFromState }) {
         <Card key={card.id} list={list} card={card}></Card>
       ))}
       <div className="">
-        <AnotherCard list={list}></AnotherCard>
+        <AnotherCard list={list} updateListInState={updateListInState} ></AnotherCard>
       </div>
 
       {show && (

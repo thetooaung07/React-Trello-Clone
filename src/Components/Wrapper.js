@@ -27,6 +27,15 @@ function Wrapper({ setIsLoading }) {
     setLists(prevLists => setLists(prevLists.filter(l => l.id !== listId)));
   };
 
+  const updateListInState = list => {
+    setLists(prevLists => {
+      const newLists = [...prevLists];
+      const listInd = newLists.findIndex(l => l.id === list.id);
+      newLists.splice(listInd, 1, list);
+      setLists(newLists);
+    });
+  };
+
   useEffect(() => {
     fetchLists();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,7 +44,7 @@ function Wrapper({ setIsLoading }) {
   return (
     <div id="wrapper" className="Wrapper d-flex p-1 text-secondary">
       {lists.map((list) => (
-        <List key={list.id} list={list} removeDeletedListFromState={removeDeletedListFromState}/>
+        <List key={list.id} list={list} updateListInState={updateListInState} removeDeletedListFromState={removeDeletedListFromState}/>
       ))}
 
       <div className="d-flex justify-content-start align-items-center rounded m-1 anotherList">

@@ -5,7 +5,7 @@ import AnotherCard from "./AnotherCard";
 import Axios from "axios";
 import CardModal from "./CardModal";
 
-function List({ list, fetchLists }) {
+function List({ list, fetchLists, addNewCardToExistingLists }) {
   const cards = list.cards;
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState(list.title);
@@ -100,7 +100,7 @@ function List({ list, fetchLists }) {
         </button>
       </div>
 
-      {cards.map((card) => (
+      {cards && cards.map((card) => (
         <Card key={card.id} list={list} card={card} fetchLists={fetchLists}></Card>
       ))}
       <div className="">

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./AnotherList.css";
 import Axios from "axios";
 
-function AnotherList({ lastList, fetchLists }) {
+function AnotherList({ lastList, addNewCardToExistingLists }) {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
 
@@ -26,18 +26,17 @@ function AnotherList({ lastList, fetchLists }) {
     event.stopPropagation();
     if (input !== "") {
       try {
-        const res = await Axios.post("http://localhost:8080/list", {
+        const res = await Axios.post("https://trello-clone-ppm.herokuapp.com/list", {
           title: input,
           position: lastList.position + 1,
           status: 1,
         });
         console.log(res);
+        addNewCardToExistingLists(res.data);
       } catch (error) {
         console.log(error);
       }
     }
-
-    fetchLists();
   };
 
   useEffect(() => {

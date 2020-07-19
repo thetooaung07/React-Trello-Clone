@@ -11,13 +11,17 @@ function Wrapper({ setIsLoading }) {
 
   const fetchLists = async () => {
     try {
-      const res = await Axios.get("http://localhost:8080/list");
+      const res = await Axios.get("https://trello-clone-ppm.herokuapp.com/list");
       setLists(res.data);
     } catch (error) {
       console.log(error);
       setLists([]);
     }
   };
+
+  const addNewCardToExistingLists = list => {
+    setLists(prevLists => setLists([...prevLists, list]));
+  }
 
   useEffect(() => {
     fetchLists();
@@ -31,7 +35,7 @@ function Wrapper({ setIsLoading }) {
       ))}
 
       <div className="d-flex justify-content-start align-items-center rounded m-1 anotherList">
-        <AnotherList lastList={lastList} fetchLists={fetchLists} />
+        <AnotherList lastList={lastList} addNewCardToExistingLists={addNewCardToExistingLists} />
       </div>
 
       <span>&thinsp;</span>

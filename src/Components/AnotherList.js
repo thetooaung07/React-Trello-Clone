@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./AnotherList.css";
 import Axios from "axios";
 
-function AnotherList({ lastList, addNewCardToExistingLists }) {
+function AnotherList({ lastList, addNewListToState }) {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
 
@@ -11,7 +11,7 @@ function AnotherList({ lastList, addNewCardToExistingLists }) {
   const node = useRef();
 
   const onCloseOutsideClick = (event) => {
-    if (node.current.contains(event.target)) {
+    if (node && node.current && node.current.contains(event.target)) {
       console.log("inside click");
 
       return;
@@ -32,7 +32,7 @@ function AnotherList({ lastList, addNewCardToExistingLists }) {
           status: 1,
         });
         console.log(res);
-        addNewCardToExistingLists(res.data);
+        addNewListToState(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -40,13 +40,8 @@ function AnotherList({ lastList, addNewCardToExistingLists }) {
   };
 
   useEffect(() => {
-    isOpen
-      ? document.addEventListener("click", onCloseOutsideClick)
-      : document.removeEventListener("click", onCloseOutsideClick);
-    return () => {
-      document.removeEventListener("click", onCloseOutsideClick);
-    };
-  }, [isOpen]);
+    document.addEventListener("click", onCloseOutsideClick);
+  }, []);
 
   return isOpen ? (
     <div

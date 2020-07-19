@@ -19,9 +19,13 @@ function Wrapper({ setIsLoading }) {
     }
   };
 
-  const addNewCardToExistingLists = list => {
+  const addNewListToState = list => {
     setLists(prevLists => setLists([...prevLists, list]));
-  }
+  };
+
+  const removeDeletedListFromState = listId => {
+    setLists(prevLists => setLists(prevLists.filter(l => l.id !== listId)));
+  };
 
   useEffect(() => {
     fetchLists();
@@ -31,11 +35,11 @@ function Wrapper({ setIsLoading }) {
   return (
     <div id="wrapper" className="Wrapper d-flex p-1 text-secondary">
       {lists.map((list) => (
-        <List key={list.id} list={list} fetchLists={fetchLists}/>
+        <List key={list.id} list={list} removeDeletedListFromState={removeDeletedListFromState}/>
       ))}
 
       <div className="d-flex justify-content-start align-items-center rounded m-1 anotherList">
-        <AnotherList lastList={lastList} addNewCardToExistingLists={addNewCardToExistingLists} />
+        <AnotherList lastList={lastList} addNewListToState={addNewListToState} />
       </div>
 
       <span>&thinsp;</span>

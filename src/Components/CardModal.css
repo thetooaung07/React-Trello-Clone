@@ -1,0 +1,43 @@
+.listGroup * {
+  border: none !important;
+  text-align: left;
+}
+.listGroup *:hover {
+  cursor: pointer;
+}
+
+.divider {
+  background-color: black;
+  width: 99% !important;
+}
+
+.CardModal {
+  position: absolute;
+  top: 147px;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+  z-index: 10040;
+  overflow: auto;
+  overflow-y: auto;
+  width: max-content;
+  height: max-content;
+  background: rgb(255, 255, 255);
+  padding-top: 0px !important;
+  box-shadow: 0px 0px 6px 0px rgba(184,184,184,1);
+}
+
+li {
+  cursor: pointer;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+ul {
+  padding-inline-start: 0px ;
+}
+
+.close:active , .close:focus {
+  border: none !important;
+  outline: none !important;
+}

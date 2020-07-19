@@ -16,16 +16,16 @@
   text-align: left;
 }
 .titleInput {
-  border: 0 !important;
+  border:2px solid rgb(25, 163, 255) !important;
   outline: none !important;
-  /* background-color:rgba(247, 247, 247, 0.925); */
   width: 100%;
   font-weight: 500 !important;
+  transition: all 85ms ease;
 }
 .titleInput:focus,.titleInput:active {
   outline: none !important;
-  box-shadow: none;
-  /* background-color:transparent; */
+  box-shadow: 0px 1px 1px 0px rgba(110, 121, 136, 0.25);
   font-size: inherit;
   font-weight: inherit;
+  z-index: -2;
 }

@@ -68,8 +68,9 @@ const MyModal = ({ show, showHandler, card, list }) => {
                 <i className="fa fa-list"></i> &nbsp; Description 
                 <p className="mt-1 mb-0">&thinsp;{description}</p>
               </div>
-              <div className="textareahidden">
+              <div className="textareahidden w-100 pr-4">
                 <textarea
+                className="pr-4"
                   name=""
                   id=""
                   cols="45"

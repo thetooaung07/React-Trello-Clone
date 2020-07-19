@@ -19,7 +19,7 @@ function App() {
   }
   useEffect(()=> {
     limitWrapperHeight();
-  });
+  },[]);
 
   return (
     <div className="App">

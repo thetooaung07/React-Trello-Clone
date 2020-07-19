@@ -17,7 +17,7 @@ const MyModal = ({ show, showHandler, card, list }) => {
   const listTitle = list.title;
   const checklists = card.checklists;
 
-  console.log(checklists);
+  // console.log(checklists);
   // console.log(labels);
 
   return (

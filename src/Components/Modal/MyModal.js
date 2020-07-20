@@ -9,13 +9,8 @@ import ModalCheckList from "./ModalCheckList";
 
 const MyModal = ({ show, showHandler, card, list }) => {
 
-  
-  const title = card.title;
-  const description = card.description;
-  const members = card.members;
-  const labels = card.labels;
+  const {title, description, members, labels, checklists} = card;
   const listTitle = list.title;
-  const checklists = card.checklists;
 
   // console.log(checklists);
   // console.log(labels);
@@ -39,7 +34,7 @@ const MyModal = ({ show, showHandler, card, list }) => {
               <div className="label-member">
                 
 
-                {members.length > 0 ? (
+                {members && members.length > 0 && (
                   <div id="mainmember" className="mem-div">
                       <h6 id="memberh4tag" className="text-secondary">Members</h6>
                     <div id="memShow">
@@ -48,11 +43,9 @@ const MyModal = ({ show, showHandler, card, list }) => {
                       ))}
                     </div>
                   </div>
-                ) : (
-                  " "
                 )}
 
-                {labels.length > 0 ? (
+                {labels && labels.length > 0 && (
                   <div id="mainlabel" className="label-div">
                       <h6 id="labelh4tag" className="ml-1 text-secondary">Labels</h6>
                     <div id="labelShow" className="d-flex justify-content-center align-items-center">
@@ -63,8 +56,6 @@ const MyModal = ({ show, showHandler, card, list }) => {
 
                     </div>
                   </div>
-                ) : (
-                  " "
                 )}
 
               </div>
@@ -87,7 +78,7 @@ const MyModal = ({ show, showHandler, card, list }) => {
                 </div>
               </div>
               
-                {
+                { checklists && checklists.length > 0 &&
                   checklists.map((checklist)=>(
                     <ModalCheckList key={checklist.id} checklist={checklist}></ModalCheckList>
                   ))

@@ -1,10 +1,10 @@
-import React,{ useEffect, useRef} from "react";
+import React,{ useEffect, createRef } from "react";
 import './CardModal.css'
 
 const CardModal = ({rect,show, setShow, handleDelete}) => {
-  const left = rect.left;
+  const {left, top} = rect;
   
-  const node = useRef();
+  const node = createRef();
 
   const onCloseOutsideClick = (event) => {
     if (node.current.contains(event.target)) {
@@ -25,12 +25,12 @@ const CardModal = ({rect,show, setShow, handleDelete}) => {
 
 
   return ( 
-  <div className="CardModal p-3 rounded" ref={node} style={{left:left}}>
+  <div className="CardModal p-3 rounded" ref={node} style={{left:left+"px", top:top+35+"px"}}>
     
       <div className="d-flex justify-content-between align-items-center my-2">
         <div className="mx-auto">List Actions </div>
         <button type="button" className="close p-1 pb-2 px-2 flex-shrink-1 rounded" aria-label="Close" onClick={() => setShow(false)}>
-           <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div className="mx-auto h-10 w-40 separator mb-0 "></div>

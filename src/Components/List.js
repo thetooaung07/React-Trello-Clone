@@ -5,7 +5,7 @@ import AnotherCard from "./AnotherCard";
 import Axios from "axios";
 import CardModal from "./CardModal";
 
-function List({ list, fetchLists }) {
+function List({ list, updateListInState, removeDeletedListFromState }) {
   const cards = list.cards;
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState(list.title);
@@ -36,18 +36,17 @@ function List({ list, fetchLists }) {
     event.stopPropagation();
     if (input !== "") {
       try {
-        const res = await Axios.put(`http://localhost:8080/list/${list.id}`, {
+        const res = await Axios.put(`https://trello-clone-ppm.herokuapp.com/list/${list.id}`, {
           title: input,
           position: list.position,
           status: 1,
         });
         console.log(res);
+        updateListInState(res.data);
       } catch (error) {
         console.log(error);
       }
     }
-
-    fetchLists();
   };
 
   const getBtnPosition = (event) => {
@@ -62,8 +61,13 @@ function List({ list, fetchLists }) {
 
   const handleDelete = async (event) => {
     // console.log(list.id)
-    await Axios.delete(`http://localhost:8080/list/${list.id}`);
-    fetchLists();
+    try {
+      await Axios.delete(`https://trello-clone-ppm.herokuapp.com/list/${list.id}`);
+      removeDeletedListFromState(list.id);
+    } catch (error) {
+      console.log("delete unsuccessful");
+    }
+    
   };
 
   return (
@@ -100,11 +104,11 @@ function List({ list, fetchLists }) {
         </button>
       </div>
 
-      {cards.map((card) => (
-        <Card key={card.id} list={list} card={card} fetchLists={fetchLists}></Card>
+      {cards && cards.map((card) => (
+        <Card key={card.id} list={list} card={card}></Card>
       ))}
       <div className="">
-        <AnotherCard list={list} fetchLists={fetchLists}></AnotherCard>
+        <AnotherCard list={list} updateListInState={updateListInState} ></AnotherCard>
       </div>
 
       {show && (

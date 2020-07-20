@@ -11,12 +11,29 @@ function Wrapper({ setIsLoading }) {
 
   const fetchLists = async () => {
     try {
-      const res = await Axios.get("http://localhost:8080/list");
+      const res = await Axios.get("https://trello-clone-ppm.herokuapp.com/list");
       setLists(res.data);
     } catch (error) {
       console.log(error);
       setLists([]);
     }
+  };
+
+  const addNewListToState = list => {
+    setLists(prevLists => setLists([...prevLists, list]));
+  };
+
+  const removeDeletedListFromState = listId => {
+    setLists(prevLists => setLists(prevLists.filter(l => l.id !== listId)));
+  };
+
+  const updateListInState = list => {
+    setLists(prevLists => {
+      const newLists = [...prevLists];
+      const listInd = newLists.findIndex(l => l.id === list.id);
+      newLists.splice(listInd, 1, list);
+      setLists(newLists);
+    });
   };
 
   useEffect(() => {
@@ -27,11 +44,11 @@ function Wrapper({ setIsLoading }) {
   return (
     <div id="wrapper" className="Wrapper d-flex p-1 text-secondary">
       {lists.map((list) => (
-        <List key={list.id} list={list} fetchLists={fetchLists}/>
+        <List key={list.id} list={list} updateListInState={updateListInState} removeDeletedListFromState={removeDeletedListFromState}/>
       ))}
 
       <div className="d-flex justify-content-start align-items-center rounded m-1 anotherList">
-        <AnotherList lastList={lastList} fetchLists={fetchLists} />
+        <AnotherList lastList={lastList} addNewListToState={addNewListToState} />
       </div>
 
       <span>&thinsp;</span>

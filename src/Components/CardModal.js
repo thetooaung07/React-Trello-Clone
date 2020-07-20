@@ -53,3 +53,6 @@ const CardModal = ({rect,show, setShow, handleDelete}) => {
 };
 
 export default CardModal;
+
+
+// function, useState, onOff , datapass -> props , context(optional), event.stopPropagation();, 

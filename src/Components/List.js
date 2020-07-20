@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, Component } from "react";
 import "./List.css";
 import Card from "./Card";
 import AnotherCard from "./AnotherCard";
@@ -19,6 +19,7 @@ function List({ list, fetchLists }) {
       //insideClick
       return;
     } else {
+      //outside click
       setIsOpen(false);
       setInput(list.title);
     }
@@ -116,6 +117,7 @@ function List({ list, fetchLists }) {
         ></CardModal>
       )}
     </div>
+    
   );
 }
 
